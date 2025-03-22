@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const list = document.querySelector('ul');
 
-  const getSalary = (li) => Number(li.dataset.salary);
+  const getSalary = (li) => Number(li.dataset.salary.replace(/[$,]/g, ''));
 
   function sortList(listElement) {
     const sortedItems = [...listElement.children].sort((a, b) => {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return [...listElement.children].map((li) => ({
       name: li.dataset.name,
       position: li.dataset.position,
-      salary: Number(li.dataset.salary),
+      salary: Number(li.dataset.salary.replace(/[$,]/g, '')),
       age: Number(li.dataset.age),
     }));
   }
